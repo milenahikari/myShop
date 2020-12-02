@@ -2,6 +2,7 @@ import React from 'react';
 import { View, StatusBar } from 'react-native';
 
 import Login from './pages/Login';
+import Home from './pages/Home';
 
 const App: React.FC = () => (
   <View style={{ flex: 1 }}>
@@ -10,7 +11,7 @@ const App: React.FC = () => (
       backgroundColor="transparent"
       translucent
     />
-    <Login />
+    <Home />
 
   </View>
 );
