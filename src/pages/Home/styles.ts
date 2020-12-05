@@ -1,6 +1,9 @@
+import { Dimensions } from 'react-native';
 import styled from 'styled-components/native';
 import LinearGradient from 'react-native-linear-gradient';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
+
+const windowWidth = `${Dimensions.get('window').width - 40}px`;
 
 export const Container = styled.View`
   flex: 1;
@@ -73,8 +76,36 @@ export const WrapperMainBanner = styled.View`
 `;
 
 export const MainBanner = styled.ScrollView`
-  background: black;
+  border-radius: 10px;
 `;
 
-export const ImageMainBanner = styled.Image`
+export const ImageMainBanner = styled.ImageBackground`
+  position: relative;
+  width: ${windowWidth};
+  height: 100%;
+`;
+
+export const DetailMainBanner = styled.View`
+  padding: 20px;
+`;
+
+export const DetailMainBannerTitle = styled.Text`
+  font-size: 25px;
+  color: #FFFFFF;
+`;
+
+export const DetailMainBannerSubTitle = styled.Text`
+  font-size: 12px;
+  color: #E7B944;
+`;
+
+export const FilterMainBanner = styled(LinearGradient).attrs({
+  start: { x: 0, y: 0 },
+  end: { x: 1, y: 0 },
+  colors: ['rgba(52,40,62,1)', 'rgba(52,40,62,1)'],
+})`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
 `;
