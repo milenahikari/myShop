@@ -10,7 +10,7 @@ const Home: React.FC = () => {
     <S.Header>
       <S.WrapperHeader>
         <S.IconMenu name="align-left" size={20} color="#FFFFFF" />
-        <S.ImageLogo source={Logo} />
+        <S.ImageLogo source={Logo} resizeMode='contain' />
         <S.IconNotification name="bell-o" size={20} color="#FFFFFF" />
       </S.WrapperHeader>
       <S.WrapperSearch>

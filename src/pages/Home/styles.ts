@@ -32,7 +32,6 @@ export const IconMenu = styled(FontAwesomeIcon)`
 export const ImageLogo = styled.Image`
   width: 88px;
   height: 24px;
-  resizeMode: contain;
 `;
 
 export const IconNotification = styled(FontAwesomeIcon)`
