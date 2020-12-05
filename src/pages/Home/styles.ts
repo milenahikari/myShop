@@ -4,7 +4,7 @@ import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 
 export const Container = styled.View`
   flex: 1;
-  background: lightblue;
+  background: #E5E5E5;
 `;
 
 export const Header = styled(LinearGradient).attrs({
@@ -40,7 +40,7 @@ export const IconNotification = styled(FontAwesomeIcon)`
 
 export const WrapperSearch = styled.View`
   position: absolute;
-  width: 335px;
+  width: 100%;
   height: 44px;
   top: 88px;
   align-self: center;
@@ -60,4 +60,22 @@ export const InputSearch = styled.TextInput`
   border-radius: 40px;
   background: #FFFFFF;
   padding-left: 45px;
+`;
+
+export const WrapperBody = styled.View`
+  flex: 1;
+  padding: 20px;
+`;
+
+export const WrapperMainBanner = styled.View`
+  width: 100%;
+  height: 88px;
+  margin-top: 20px;
+`;
+
+export const MainBanner = styled.ScrollView`
+  background: black;
+`;
+
+export const ImageMainBanner = styled.Image`
 `;

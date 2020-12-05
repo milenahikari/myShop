@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Logo from '../../assets/img/logo-my-shop.png';
+import MainBanner1 from '../../assets/img/main-banner-1.png';
 
 import * as S from './styles'
 
@@ -20,6 +21,23 @@ const Home: React.FC = () => {
           autoCorrect={false} />
       </S.WrapperSearch>
     </S.Header>
+
+    <S.WrapperBody>
+      <S.WrapperMainBanner>
+        <S.MainBanner
+          horizontal={true}
+          contentContainerStyle={{ width: `${100 * 3}%` }}
+          showsHorizontalScrollIndicator={true}
+          scrollEventThrottle={200}
+          decelerationRate="fast"
+          pagingEnabled
+        >
+          <S.ImageMainBanner source={MainBanner1} />
+          <S.ImageMainBanner source={MainBanner1} />
+          <S.ImageMainBanner source={MainBanner1} />
+        </S.MainBanner>
+      </S.WrapperMainBanner>
+    </S.WrapperBody>
   </S.Container >;
 }
 
