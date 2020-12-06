@@ -1,0 +1,22 @@
+{
+  "mainBanners": [
+    {
+      "id": 1,
+      "title": "Fashion Sale",
+      "subtitle": "See More",
+      "picture": "https://imgur.com/LpnYNAD.png"
+    },
+    {
+      "id": 2,
+      "title": "",
+      "subtitle": "",
+      "picture": "https://imgur.com/K5IkqiS.png"
+    },
+    {
+      "id": 3,
+      "title": "",
+      "subtitle": "",
+      "picture": "https://imgur.com/mUVDzNz.png"
+    }
+  ]
+}

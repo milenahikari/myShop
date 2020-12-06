@@ -1,13 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Logo from '../../assets/img/logo-my-shop.png';
-import MainBanner1 from '../../assets/img/main-banner-1.png';
-import MainBanner2 from '../../assets/img/main-banner-2.png';
-import MainBanner3 from '../../assets/img/main-banner-3.png';
 
-import * as S from './styles'
+import api from '../../services/api/mainBanners.json';
+
+import * as S from './styles';
+
+interface MainBanner {
+  id: number;
+  title: string;
+  subtitle: string;
+  picture: string;
+}
 
 const Home: React.FC = () => {
+  const [mainBanners, setMainBanners] = useState<MainBanner[]>([]);
+
+  useEffect(() => {
+    setMainBanners(api.mainBanners);
+  }, []);
+
   return <S.Container>
     <S.Header>
       <S.WrapperHeader>
@@ -32,19 +44,19 @@ const Home: React.FC = () => {
           decelerationRate="fast"
           pagingEnabled
         >
-          <S.ImageMainBanner source={MainBanner1} resizeMode='cover'>
-            <S.FilterMainBanner />
-            <S.DetailMainBanner>
-              <S.DetailMainBannerTitle>Fashion Sale</S.DetailMainBannerTitle>
-              <S.DetailMainBannerSubTitle>See More <S.IconMenu name="chevron-right" size={13} color="#E7B944" /></S.DetailMainBannerSubTitle>
-            </S.DetailMainBanner>
-          </S.ImageMainBanner>
-          <S.ImageMainBanner source={MainBanner2} resizeMode='cover'>
-            <S.FilterMainBanner />
-          </S.ImageMainBanner>
-          <S.ImageMainBanner source={MainBanner3} resizeMode='cover'>
-            <S.FilterMainBanner />
-          </S.ImageMainBanner>
+          {mainBanners.map((mainBanner: MainBanner) => (
+            <S.ImageMainBanner key={mainBanner.id} source={{ uri: mainBanner.picture }} resizeMode='cover'>
+              <S.FilterMainBanner />
+              {!!(mainBanner.title.length && mainBanner.subtitle) &&
+                <S.DetailMainBanner>
+                  <S.DetailMainBannerTitle>{mainBanner.title}</S.DetailMainBannerTitle>
+                  <S.DetailMainBannerSubTitle>
+                    {mainBanner.subtitle} <S.IconMenu name="chevron-right" size={12} color="#E7B944" />
+                  </S.DetailMainBannerSubTitle>
+                </S.DetailMainBanner>
+              }
+            </S.ImageMainBanner>
+          ))}
         </S.MainBanner>
       </S.WrapperMainBanner>
     </S.WrapperBody>

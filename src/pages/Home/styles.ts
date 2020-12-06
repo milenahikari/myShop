@@ -96,6 +96,7 @@ export const DetailMainBannerTitle = styled.Text`
 
 export const DetailMainBannerSubTitle = styled.Text`
   font-size: 12px;
+  font-weight: bold;
   color: #E7B944;
 `;
 
