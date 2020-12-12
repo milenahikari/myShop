@@ -1,0 +1,44 @@
+{
+  "catalogues": [
+    {
+      "id": 1,
+      "name": "Women's Fashion",
+      "photo": "https://imgur.com/dCb1NQk.png"
+    },
+    {
+      "id": 2,
+      "name": "Men's Fashion",
+      "photo": "https://imgur.com/vwk6flg.png"
+    },
+    {
+      "id": 3,
+      "name": "Phones",
+      "photo": "https://imgur.com/UsEjEQn.png"
+    },
+    {
+      "id": 4,
+      "name": "Computers",
+      "photo": "https://imgur.com/Q4fWUbn.png"
+    },
+    {
+      "id": 5,
+      "name": "Smart home",
+      "photo": "https://imgur.com/jG3TdAO.png"
+    },
+    {
+      "id": 6,
+      "name": "Arts & Crafts",
+      "photo": "https://imgur.com/oyXyXtm.png"
+    },
+    {
+      "id": 7,
+      "name": "Baby",
+      "photo": "https://imgur.com/BTb4rM6.png"
+    },
+    {
+      "id": 8,
+      "name": "Sport",
+      "photo": "https://imgur.com/qjwOAdQ.png"
+    }
+  ]
+}

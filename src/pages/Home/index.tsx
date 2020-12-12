@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 import Logo from '../../assets/img/logo-my-shop.png';
 
-import api from '../../services/api/mainBanners.json';
+import apiMainBanners from '../../services/api/mainBanners.json';
+import apiCatalogues from '../../services/api/catalogues.json';
 
 import * as S from './styles';
+import { Alert } from 'react-native';
 
 interface MainBanner {
   id: number;
@@ -13,11 +15,23 @@ interface MainBanner {
   photo: string;
 }
 
+interface Catalogue {
+  id: number;
+  name: string;
+  photo: string;
+}
+
 const Home: React.FC = () => {
   const [mainBanners, setMainBanners] = useState<MainBanner[]>([]);
+  const [catalogues, setCatalogues] = useState<Catalogue[]>([]);
 
   useEffect(() => {
-    setMainBanners(api.mainBanners);
+    setMainBanners(apiMainBanners.mainBanners);
+    setCatalogues(apiCatalogues.catalogues);
+  }, []);
+
+  const handleSeeAllCatalogues = useCallback(() => {
+    Alert.alert('List catalogues!', 'Catalogues...');
   }, []);
 
   return <S.Container>
@@ -45,13 +59,18 @@ const Home: React.FC = () => {
           pagingEnabled
         >
           {mainBanners.map((mainBanner: MainBanner) => (
-            <S.ImageMainBanner key={mainBanner.id} source={{ uri: mainBanner.photo }} resizeMode='cover'>
+            <S.ImageMainBanner
+              key={mainBanner.id}
+              source={{ uri: mainBanner.photo }}
+              resizeMode='cover'
+              imageStyle={{ borderRadius: 8 }}
+            >
               <S.FilterImageMainBanner />
               {!!(mainBanner.title.length && mainBanner.subtitle) &&
                 <S.DetailMainBanner>
                   <S.DetailMainBannerTitle>{mainBanner.title}</S.DetailMainBannerTitle>
                   <S.DetailMainBannerSubTitle>
-                    {mainBanner.subtitle} <S.IconDetailMainBanner name="chevron-right" size={12} color="#E7B944" />
+                    {mainBanner.subtitle} <S.IconArrowRight name="chevron-right" size={12} color="#E7B944" />
                   </S.DetailMainBannerSubTitle>
                 </S.DetailMainBanner>
               }
@@ -59,6 +78,38 @@ const Home: React.FC = () => {
           ))}
         </S.CarouselMainBanner>
       </S.WrapperCarouselMainBanner>
+
+      <S.WrapperCatalogues>
+        <S.WrapperCataloguesDetail>
+          <S.CatalogueTitle>Catalogue</S.CatalogueTitle>
+          <S.ButtonCatalogues onPress={handleSeeAllCatalogues}>
+            <S.ButtonCataloguesText>See All</S.ButtonCataloguesText>
+            <S.IconArrowRight name="chevron-right" size={12} color="#9B9B9B" />
+          </S.ButtonCatalogues>
+        </S.WrapperCataloguesDetail>
+
+        <S.WrapperCarouselCatalogues>
+          <S.CarouselCatalogues
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+            decelerationRate="fast"
+            pagingEnabled
+          >
+            {catalogues.map((catalogue: Catalogue) => (
+              <S.ImageCatalogue
+                key={catalogue.id}
+                source={{ uri: catalogue.photo }}
+                resizeMode='cover'
+                imageStyle={{ borderRadius: 8 }}
+              >
+                <S.FilterImageMainBanner />
+                <S.CatalogueName>{catalogue.name}</S.CatalogueName>
+              </S.ImageCatalogue>
+            ))}
+          </S.CarouselCatalogues>
+        </S.WrapperCarouselCatalogues>
+      </S.WrapperCatalogues>
+
     </S.Body>
   </S.Container >;
 }
