@@ -10,7 +10,7 @@ interface MainBanner {
   id: number;
   title: string;
   subtitle: string;
-  picture: string;
+  photo: string;
 }
 
 const Home: React.FC = () => {
@@ -36,30 +36,30 @@ const Home: React.FC = () => {
       </S.WrapperSearch>
     </S.Header>
 
-    <S.WrapperBody>
-      <S.WrapperMainBanner>
-        <S.MainBanner
+    <S.Body>
+      <S.WrapperCarouselMainBanner>
+        <S.CarouselMainBanner
           horizontal={true}
           showsHorizontalScrollIndicator={true}
           decelerationRate="fast"
           pagingEnabled
         >
           {mainBanners.map((mainBanner: MainBanner) => (
-            <S.ImageMainBanner key={mainBanner.id} source={{ uri: mainBanner.picture }} resizeMode='cover'>
-              <S.FilterMainBanner />
+            <S.ImageMainBanner key={mainBanner.id} source={{ uri: mainBanner.photo }} resizeMode='cover'>
+              <S.FilterImageMainBanner />
               {!!(mainBanner.title.length && mainBanner.subtitle) &&
                 <S.DetailMainBanner>
                   <S.DetailMainBannerTitle>{mainBanner.title}</S.DetailMainBannerTitle>
                   <S.DetailMainBannerSubTitle>
-                    {mainBanner.subtitle} <S.IconMenu name="chevron-right" size={12} color="#E7B944" />
+                    {mainBanner.subtitle} <S.IconDetailMainBanner name="chevron-right" size={12} color="#E7B944" />
                   </S.DetailMainBannerSubTitle>
                 </S.DetailMainBanner>
               }
             </S.ImageMainBanner>
           ))}
-        </S.MainBanner>
-      </S.WrapperMainBanner>
-    </S.WrapperBody>
+        </S.CarouselMainBanner>
+      </S.WrapperCarouselMainBanner>
+    </S.Body>
   </S.Container >;
 }
 

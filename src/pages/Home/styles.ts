@@ -64,18 +64,18 @@ export const InputSearch = styled.TextInput`
   padding-left: 45px;
 `;
 
-export const WrapperBody = styled.View`
+export const Body = styled.View`
   flex: 1;
   padding: 20px;
 `;
 
-export const WrapperMainBanner = styled.View`
+export const WrapperCarouselMainBanner = styled.View`
   width: 100%;
   height: 88px;
   margin-top: 20px;
 `;
 
-export const MainBanner = styled.ScrollView`
+export const CarouselMainBanner = styled.ScrollView`
   border-radius: 10px;
 `;
 
@@ -100,7 +100,9 @@ export const DetailMainBannerSubTitle = styled.Text`
   color: #E7B944;
 `;
 
-export const FilterMainBanner = styled(LinearGradient).attrs({
+export const IconDetailMainBanner = styled(FontAwesomeIcon)``;
+
+export const FilterImageMainBanner = styled(LinearGradient).attrs({
   start: { x: 0, y: 0 },
   end: { x: 1, y: 0 },
   colors: ['rgba(52,40,62,1)', 'rgba(52,40,62,1)'],
