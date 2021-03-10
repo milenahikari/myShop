@@ -1,9 +1,10 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 
 import Logo from '../../assets/img/logo-my-shop.png';
 
 import apiMainBanners from '../../services/api/mainBanners.json';
 import apiCatalogues from '../../services/api/catalogues.json';
+import apiFeatures from '../../services/api/features.json';
 
 import * as S from './styles';
 import { Alert } from 'react-native';
@@ -21,13 +22,28 @@ interface Catalogue {
   photo: string;
 }
 
+interface Featured {
+  id: number;
+  photo: string;
+  description: string;
+  price: number;
+  price_discount: number;
+  rating: number;
+}
+
 const Home: React.FC = () => {
   const [mainBanners, setMainBanners] = useState<MainBanner[]>([]);
   const [catalogues, setCatalogues] = useState<Catalogue[]>([]);
+  const [features, setFeatures] = useState<Featured[]>([]);
 
   useEffect(() => {
     setMainBanners(apiMainBanners.mainBanners);
     setCatalogues(apiCatalogues.catalogues);
+    setFeatures(apiFeatures.features);
+  }, []);
+
+  const formatPrice = useMemo(() => (price: string) => {
+    return `$${parseFloat(price).toFixed(2)}`;
   }, []);
 
   const handleSeeAllCatalogues = useCallback(() => {
@@ -41,6 +57,7 @@ const Home: React.FC = () => {
         <S.ImageLogo source={Logo} resizeMode='contain' />
         <S.IconNotification name="bell-o" size={20} color="#FFFFFF" />
       </S.WrapperHeader>
+
       <S.WrapperSearch>
         <S.IconSearch name="search" size={20} color="#9B9B9B" />
         <S.InputSearch
@@ -81,7 +98,8 @@ const Home: React.FC = () => {
 
       <S.WrapperCatalogues>
         <S.WrapperCataloguesDetail>
-          <S.CatalogueTitle>Catalogue</S.CatalogueTitle>
+          <S.Title>Catalogue</S.Title>
+
           <S.ButtonCatalogues onPress={handleSeeAllCatalogues}>
             <S.ButtonCataloguesText>See All</S.ButtonCataloguesText>
             <S.IconArrowRight name="chevron-right" size={12} color="#9B9B9B" />
@@ -109,6 +127,32 @@ const Home: React.FC = () => {
           </S.CarouselCatalogues>
         </S.WrapperCarouselCatalogues>
       </S.WrapperCatalogues>
+
+      <S.WrapperFeatures>
+        <S.Title>Featured</S.Title>
+
+        <S.WrapperCardFeatures>
+          {features.map((featured: Featured) => (
+            <S.CardFeatures key={featured.id}>
+              <S.ImageFeatures
+                source={{ uri: featured.photo }}
+                resizeMode='contain'
+              />
+              <S.ButtonFavourite>
+                <S.IconHeart name="heart-o" size={20} color="#E7B944"></S.IconHeart>
+              </S.ButtonFavourite>
+              <S.WrapperEvaluation>
+
+              </S.WrapperEvaluation>
+              <S.Description
+                numberOfLines={2}
+              >{featured.description}</S.Description>
+              <S.WrapperPrice>{formatPrice(featured.price)}</S.WrapperPrice>
+            </S.CardFeatures>
+          ))}
+
+        </S.WrapperCardFeatures>
+      </S.WrapperFeatures>
 
     </S.Body>
   </S.Container >;

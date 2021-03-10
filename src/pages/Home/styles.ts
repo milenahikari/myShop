@@ -5,7 +5,7 @@ import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 
 const windowWidth = `${Dimensions.get('window').width - 40}px`;
 
-export const Container = styled.View`
+export const Container = styled.ScrollView`
   flex: 1;
   background: #E5E5E5;
 `;
@@ -18,7 +18,7 @@ export const Header = styled(LinearGradient).attrs({
   position: relative;
   width: 100%;
   height: 110px;
-  padding: 20px;
+  padding: 16px;
 `;
 
 export const WrapperHeader = styled.View`
@@ -65,7 +65,7 @@ export const InputSearch = styled.TextInput`
 
 export const Body = styled.View`
   flex: 1;
-  padding: 20px;
+  padding: 16px;
 `;
 
 export const WrapperCarouselMainBanner = styled.View`
@@ -118,7 +118,6 @@ export const WrapperCatalogues = styled.View`
 `;
 
 export const WrapperCataloguesDetail = styled.View`
-  display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -127,17 +126,16 @@ export const WrapperCataloguesDetail = styled.View`
 export const WrapperCarouselCatalogues = styled.View`
   width: 100%;
   height: 88px;
-  margin-top: 20px;
 `;
 
-export const CatalogueTitle = styled.Text`
+export const Title = styled.Text`
   font-size: 19px;
   font-weight: bold;
   color: #34283E;
+  margin-bottom: 20px;
 `;
 
 export const ButtonCatalogues = styled.TouchableOpacity`
-  display: flex;
   flex-direction: row;
   align-items: center;
 `;
@@ -155,7 +153,6 @@ export const CarouselCatalogues = styled.ScrollView`
 
 export const ImageCatalogue = styled.ImageBackground`
   position: relative;
-  display: flex;
   justify-content: center;
   width: 88px;
   height: 88px;
@@ -167,4 +164,43 @@ export const CatalogueName = styled.Text`
   font-weight: 600;
   color: #FFFFFF;
   text-align: center;
+`;
+
+export const WrapperFeatures = styled.View`
+  margin-top: 20px;
+`;
+
+export const WrapperCardFeatures = styled.View`
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+`;
+
+export const CardFeatures = styled.View`
+  width: 155px;
+  margin-top: 24px;
+  border-radius: 8px;
+  background: lightcyan;
+`;
+
+export const ImageFeatures = styled.Image`
+  width: 100%;
+  height: 163px;
+`;
+
+export const ButtonFavourite = styled.TouchableOpacity``;
+
+export const IconHeart = styled(FontAwesomeIcon)``;
+
+export const WrapperEvaluation = styled.View``;
+
+export const Description = styled.Text`
+  color: #34283E;
+`;
+
+export const WrapperPrice = styled.Text`
+  font-size: 17px;
+  font-weight: bold;
+  color: #34283E;
+  margin-top: 6px;
 `;

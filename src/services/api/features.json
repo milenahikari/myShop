@@ -1,0 +1,68 @@
+{
+  "features": [
+    {
+      "id": 1,
+      "photo": "https://imgur.com/4KDkd9g.png",
+      "description": "Saodimallsu Womens Turtleneck Oversized",
+      "price": 99,
+      "price_discount": 49,
+      "rating": 5
+    },
+    {
+      "id": 2,
+      "photo": "https://imgur.com/YpJKAE4.png",
+      "description": "Astylish Women Open Front Long Sleeve Chunky Knit Cardigan",
+      "price": 89.99,
+      "price_discount": 0,
+      "rating": 5
+    },
+    {
+      "id": 3,
+      "photo": "https://imgur.com/zPJACaD.png",
+      "description": "ECOWISH Womens Color Block Striped Draped",
+      "price": 102.33,
+      "price_discount": 0,
+      "rating": 5
+    },
+    {
+      "id": 4,
+      "photo": "https://imgur.com/u2ae5FZ.png",
+      "description": "Angashion Women's Sweaters Casual Long",
+      "price": 132.98,
+      "price_discount": 0,
+      "rating": 5
+    },
+    {
+      "id": 5,
+      "photo": "https://imgur.com/zwCBAV0.png",
+      "description": "Jouica Women's Casual Lightweight V Neck",
+      "price": 78.54,
+      "price_discount": 0,
+      "rating": 5
+    },
+    {
+      "id": 6,
+      "photo": "https://imgur.com/upYDdPj.png",
+      "description": "Biucly Women's Lightweight Color Block",
+      "price": 81.19,
+      "price_discount": 0,
+      "rating": 5
+    },
+    {
+      "id": 7,
+      "photo": "https://imgur.com/tPXDpW7.png",
+      "description": "VOIANLIMO Women's Off Shoulder Knit Jum",
+      "price": 124.99,
+      "price_discount": 0,
+      "rating": 5
+    },
+    {
+      "id": 8,
+      "photo": "https://imgur.com/i3DErzy.png",
+      "description": "Simplee Women's Oversized Lantern Slee",
+      "price": 108.99,
+      "price_discount": 0,
+      "rating": 5
+    },
+  ]
+}
